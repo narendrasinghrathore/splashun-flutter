@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
           bottom: TabBar(
             tabs: <Widget>[
               Tab(text: 'Home', icon: Icon(Icons.home)),
-              Tab(text: 'Search Images', icon: Icon(Icons.settings_applications))
+              Tab(text: 'Search Images', icon: Icon(Icons.search))
             ],
           ),
         ),
@@ -89,8 +89,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-// ImageCards(_photos)
-// bottomNavigationBar: TabBar(tabs: <Widget>[
-//       Tab(text: 'Settings',icon:Icon(Icons.settings),),
-//       Tab(text: 'Dashboard',icon:Icon(Icons.dashboard),)
-//     ],),

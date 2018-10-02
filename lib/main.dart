@@ -22,6 +22,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: new MainPage(),
+      routes: {
+        'home': (BuildContext context) => new MyHomePage(title: 'SPLASHUN')
+      },
+      // onGenerateRoute: (RouteSettings settings)
+      // {
+      //   settings.name
+
+      // },
     );
   }
 }

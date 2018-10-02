@@ -16,11 +16,7 @@ class MainPage extends StatelessWidget {
             RaisedButton(
               child: Text("Welcome"),
               onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            new MyHomePage(title: 'SPLASHUN')));
+                Navigator.pushReplacementNamed(context,'home');
               },
             )
           ],
