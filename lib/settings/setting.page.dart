@@ -11,7 +11,17 @@ class SettingPage extends StatelessWidget {
       body: Container(
         child: Column(
           children: <Widget>[
-            Center(child: Text("Setting Page"),)
+            Center(child: Text("Setting Page")),
+            RaisedButton(
+              child: Text('Show Modal'),
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Center(child:Text('Modal here'));
+                    });
+              },
+            )
           ],
         ),
       ),
