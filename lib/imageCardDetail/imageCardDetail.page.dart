@@ -7,6 +7,27 @@ class ImageCardDetailPage extends StatelessWidget {
 
   ImageCardDetailPage(this._text);
 
+  _showDialog(BuildContext context){
+    showDialog(context: context, builder: (BuildContext context){
+      return AlertDialog(
+        title: Text('Are you sure want to delete?'),
+        content: Text('Action cannot be undone!'),
+        actions: <Widget>[
+          RaisedButton(child: Text(
+            'No'
+          ),onPressed: (){
+            Navigator.pop(context);
+          }),
+          RaisedButton(onPressed: () {
+            Navigator.pop(context);
+            Navigator.pop(context, true);
+          },child: Text('Confirm'),)
+        ]
+      ,);
+
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -31,8 +52,8 @@ class ImageCardDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     new RaisedButton(
-                      onPressed: () => Navigator.pop(context, true),
-                      child: new Text("Back"),
+                      onPressed: () => _showDialog(context),
+                      child: new Text("DELETE"),
                     )
                   ],
                 )

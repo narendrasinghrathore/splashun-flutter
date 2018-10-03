@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
       //   settings.name
 
       // },
+      onUnknownRoute: (RouteSettings setting){
+        //  if not handle on onGenerateRoute
+      },
     );
   }
 }

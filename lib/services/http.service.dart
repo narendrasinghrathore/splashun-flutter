@@ -1,5 +1,6 @@
-import 'dart:_http';
+
 import 'dart:async';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -17,7 +18,7 @@ class HttpService {
           '&page=' +
           body.page.toString() +
           '&order_by=' +
-          body.orderBy.toString(),
+          body.orderBy.toString().toLowerCase(),
       headers: {HttpHeaders.authorizationHeader: "Client-ID $_accessKey"},
     );
   }

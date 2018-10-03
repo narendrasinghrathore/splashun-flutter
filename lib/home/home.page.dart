@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 import 'package:splashun_flutter/imageCards.dart';
+import 'package:splashun_flutter/models/home.model.dart';
+import 'package:splashun_flutter/models/photos.model.dart';
+import 'package:splashun_flutter/services/http.service.dart';
 import 'package:splashun_flutter/settings/setting.page.dart';
 import 'package:splashun_flutter/shared/floating-button.dart';
 
@@ -26,15 +30,25 @@ class _MyHomePageState extends State<MyHomePage> {
   List<String> _photos = [];
   int _counter = 0;
   double imageHeight = 200.12;
+  HttpService _httpService = new HttpService();
+  PhotosParam _photoParams = new PhotosParam();
 
   void _incrementCounter() {
     setState(() {
+      _photoParams.orderBy = PhotoOrderBy.Latest;
+      _photoParams.perPage = 10;
+      _photoParams.page = 1;
+
+      _httpService.fetchImages(_photoParams).then<GetPhotos>((onValue) {
+        print(onValue);
+
+      });
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _photos.add('Hi there');
+      _photos.add( 'new GetPhotos()');
     });
   }
 
