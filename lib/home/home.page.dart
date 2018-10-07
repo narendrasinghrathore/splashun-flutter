@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
 import 'package:splashun_flutter/imageCards.dart';
 import 'package:splashun_flutter/models/home.model.dart';
@@ -28,7 +27,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> _photos = [];
-  int _counter = 0;
   double imageHeight = 200.12;
   HttpService _httpService = new HttpService();
   PhotosParam _photoParams = new PhotosParam();
@@ -68,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               AppBar(title: Text('Menu'), automaticallyImplyLeading: false),
               ListTile(
+                leading: Icon(Icons.edit),
                 title: Text('Setting'),
                 onTap: () {
                   Navigator.push(

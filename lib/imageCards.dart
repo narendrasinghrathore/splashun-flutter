@@ -33,7 +33,12 @@ class ImageCards extends StatelessWidget {
               highlightElevation: 8.0,
               highlightColor: Colors.black26,
               color: Colors.white,
-              child: new Text('Details for: ' + index.toString()),
+              child: Row(
+                children: <Widget>[
+                  Icon(Icons.details),
+                  Text('Details for: ' + index.toString()),
+                ],
+              ),
               onPressed: () => Navigator.push<bool>(
                           context,
                           MaterialPageRoute(
