@@ -41,14 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
       _httpService.fetchImages(_photoParams).then<GetPhotos>((onValue) {
         print(onValue);
-
       });
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _photos.add( 'new GetPhotos()');
+      _photos.add('new GetPhotos()');
     });
   }
 
@@ -80,12 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        backgroundColor: new Color.fromRGBO(255, 255, 255, 1.0),
+        // backgroundColor: new Color.fromRGBO(255, 255, 255, 1.0),
         appBar: new AppBar(
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: new Text(widget.title),
-          backgroundColor: Color.fromRGBO(0, 153, 51, 1.0),
+          backgroundColor: Color.fromRGBO(196, 0, 60, 1.0),
           bottom: TabBar(
             tabs: <Widget>[
               Tab(text: 'Home', icon: Icon(Icons.home)),

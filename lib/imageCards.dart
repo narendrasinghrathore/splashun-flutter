@@ -29,15 +29,17 @@ class ImageCards extends StatelessWidget {
           children: <Widget>[
             new Image.asset('assets/images/myself.jpeg'),
             new RaisedButton(
-              child: new Text('Details for $index'),
+              elevation: 3.0,
+              highlightElevation: 8.0,
+              highlightColor: Colors.black26,
+              color: Colors.white,
+              child: new Text('Details for: ' + index.toString()),
               onPressed: () => Navigator.push<bool>(
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
                                   ImageCardDetailPage(index.toString())))
                       .then((value) {
-                    print('index $index');
-                    print(value);
                     if (value) {
                       _imageCardList.removeAt(index);
                     }
@@ -66,7 +68,23 @@ class ImageCards extends StatelessWidget {
             itemCount: _imageCardList.length,
           )
         : Center(
-            child: Text("No data"),
+            child: Container(
+              padding: EdgeInsets.all(3.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(3.0),
+                border: Border.all(style: BorderStyle.solid, width: 2.0),
+              ),
+              child: Text(
+                "No data",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.red,
+                  textBaseline: TextBaseline.alphabetic,
+                  fontSize: 26.0,
+                  fontFamily: 'Ubuntu',
+                ),
+              ),
+            ),
           );
   }
 }
