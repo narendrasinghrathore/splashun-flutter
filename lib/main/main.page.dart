@@ -10,6 +10,9 @@ class MainPage extends StatefulWidget {
 class _MainPage extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
+    final double _deviceWidth = MediaQuery.of(context).size.width;
+    final double targetWidth =
+        _deviceWidth > 550.0 ? 400.0 : _deviceWidth * 0.90;
     String _password;
     String _email;
     bool _acceptTerms = false;
@@ -30,60 +33,61 @@ class _MainPage extends State<MainPage> {
         padding: EdgeInsets.all(20.0),
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextField(
-                  cursorColor: Colors.red,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    fillColor: Colors.black,
-                    filled: true,
+            child: Container(
+              width: targetWidth,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextField(
+                    cursorColor: Colors.red,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                    onChanged: (String value) {
+                      setState(() {
+                        _email = value;
+                      });
+                    },
                   ),
-                  keyboardType: TextInputType.emailAddress,
-                  onChanged: (String value) {
-                    setState(() {
-                      _email = value;
-                    });
-                  },
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Password',
+                  SizedBox(
+                    height: 10.0,
                   ),
-                  obscureText: true,
-                  onChanged: (String value) {
-                    setState(() {
-                      _password = value;
-                    });
-                  },
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                SwitchListTile(
-                  title: Text('Accept Terms'),
-                  subtitle: Text('Our Policies'),
-                  onChanged: (bool value) {
-                    setState(() {
-                      _acceptTerms = value;
-                    });
-                  },
-                  value: _acceptTerms,
-                ),
-                RaisedButton(
-                  color: Colors.black54,
-                  textColor: Colors.white,
-                  child: Text("Welcome"),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, 'home');
-                  },
-                ),
-              ],
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                    ),
+                    obscureText: true,
+                    onChanged: (String value) {
+                      setState(() {
+                        _password = value;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  SwitchListTile(
+                    title: Text('Accept Terms'),
+                    subtitle: Text('Our Policies'),
+                    onChanged: (bool value) {
+                      setState(() {
+                        _acceptTerms = value;
+                      });
+                    },
+                    value: _acceptTerms,
+                  ),
+                  RaisedButton(
+                    color: Colors.black54,
+                    textColor: Colors.white,
+                    child: Text("Welcome"),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, 'home');
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
