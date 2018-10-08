@@ -21,6 +21,7 @@ class _MainPage extends State<MainPage> {
       // backgroundColor: Color.fromRGBO(196, 0, 60, 0.6),
       appBar: new AppBar(
         title: new Text("Main Page"),
+        
         // backgroundColor: Colors.transparent,
       ),
       body: Container(

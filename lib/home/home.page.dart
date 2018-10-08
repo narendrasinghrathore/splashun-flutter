@@ -94,9 +94,24 @@ class _MyHomePageState extends State<MyHomePage> {
         body: TabBarView(
           children: <Widget>[ImageCards(_photos), SettingPage()],
         ),
-        floatingActionButton: new MyFloatingButton(
-            callFunction:
-                _incrementCounter), // This trailing comma makes auto-formatting nicer for build methods.
+        floatingActionButton: GestureDetector(
+          onTap: _incrementCounter,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(3.0),
+              border: Border.all(style: BorderStyle.solid, width: 2.0),
+            ),
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              'Add',
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ), // This trailing comma makes auto-formatting nicer for build methods.
       ),
     );
   }
