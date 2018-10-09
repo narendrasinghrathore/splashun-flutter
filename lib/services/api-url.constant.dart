@@ -6,4 +6,6 @@ class ApiUrl {
   static const secretKey =
       '51191bbb958d123a6c3ed6eb22d411fd87798e43dc5d5aea65d1b341e12a796e';
   static const url = 'https://api.unsplash.com';
+
+  static const firebaseRealTimeDB = 'https://splashun-flutter.firebaseio.com/';
 }

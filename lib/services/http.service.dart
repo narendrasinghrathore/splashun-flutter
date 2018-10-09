@@ -1,5 +1,5 @@
-
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
@@ -23,5 +23,13 @@ class HttpService {
     );
   }
 
-  
+  Future<Response> addTodoItem(String newItem) {
+    final Map<String, dynamic> item = {'name': newItem};
+    return http.post(ApiUrl.firebaseRealTimeDB + '/todo.json',
+        body: json.encode(item));
+  }
+
+  Future<Response> getTodoItems() {
+    return http.get(ApiUrl.firebaseRealTimeDB + '/todo.json');
+  }
 }

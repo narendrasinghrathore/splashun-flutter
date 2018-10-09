@@ -74,7 +74,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(
                           builder: (BuildContext context) => SettingPage()));
                 },
-              )
+              ),
+              ListTile(
+                title: Text('Todo'),
+                leading: Icon(Icons.format_list_numbered),
+                onTap: () {
+                  Navigator.popAndPushNamed(context, 'todo');
+                },
+              ),
             ],
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splashun_flutter/home/home.page.dart';
 import 'package:splashun_flutter/main/main.page.dart';
+import 'package:splashun_flutter/todo/todo.page.dart';
 
 void main() => runApp(new MyApp());
 
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       ),
       home: new MainPage(),
       routes: {
-        'home': (BuildContext context) => new MyHomePage(title: 'SPLASHUN')
+        'home': (BuildContext context) => new MyHomePage(title: 'SPLASHUN'),
+        'todo': (BuildContext context) => TodoPage(title : 'Todo List'),
       },
       // onGenerateRoute: (RouteSettings settings)
       // {
