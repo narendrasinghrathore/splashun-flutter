@@ -1,32 +1,41 @@
 import 'package:flutter/material.dart';
-import './todo.service.dart';
+import 'package:splashun_flutter/models/todo.model.dart';
+import 'package:splashun_flutter/todo/todo.service.dart';
 
 class TodoListPage extends StatefulWidget {
   TodoService todoService;
   TodoListPage() {
-    this.todoService = new TodoService();
+    todoService = new TodoService();
   }
   @override
-  _TodoListPage createState() {
-    // TODO: implement createState
-    return _TodoListPage(this.todoService);
+  State<StatefulWidget> createState() {
+    return _TodoListPageState(todoService);
   }
 }
 
-class _TodoListPage extends State<TodoListPage> {
-  @override
-  initState() {
-    super.initState();
-    print('Was called');
-  }
-
+class _TodoListPageState extends State<TodoListPage> {
   TodoService todoService;
 
-  _TodoListPage(this.todoService);
+  List<TodoModel> todoList = [];
+
+  _TodoListPageState(this.todoService);
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      todoService.getTodoItems().then((value) {
+        todoList = value;
+       
+      });
+    });
+  }
 
   Widget _buildTodoList(BuildContext context, int index) {
-    print(this.todoService.todoList[index].name);
-    return Text(this.todoService.todoList[index].name);
+    return Text(
+      todoList[index].name,
+      style: TextStyle(fontFamily: 'Ubuntu', fontSize: 24.0),
+    );
   }
 
   @override
@@ -36,8 +45,7 @@ class _TodoListPage extends State<TodoListPage> {
       margin: EdgeInsets.all(5.0),
       padding: EdgeInsets.all(5.0),
       child: ListView.builder(
-          itemBuilder: _buildTodoList,
-          itemCount: this.todoService.todoList.length),
+          itemBuilder: _buildTodoList, itemCount: todoList.length),
     );
   }
 }
